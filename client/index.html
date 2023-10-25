@@ -3,12 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
-    <title>Prometheus Chat App</title>
+    <link
+      rel="shortcut icon"
+      href="./assets//fireicon.png"
+      type="image/x-icon"
+    />
+    <!-- Main CSS Style -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- Homepage CSS style -->
+    <link rel="stylesheet" href="./css/home.css" />
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Prometheus | Chat App</title>
   </head>
-  <body>
-    <h1>Welcome to Prometheus</h1>
+  <body class="grainy">
+    <main class="wrapper">
+      <nav class="nav">
+        <div class="nav-logo">
+          <p>Prometheus</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="./login.html" class="link active">Home</a></li>
+            <li><a href="./signup.html" class="link">About</a></li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <button class="btn white-btn" id="loginBtn" onclick="login()">
+            Login
+          </button>
+          <button class="btn" id="signupBtn" onclick="register()">
+            Signup
+          </button>
+        </div>
+        <div class="nav-menu-btn">
+          <i class="bx bx-menu" onclick="menuFunction()"></i>
+        </div>
+      </nav>
 
+      <section class="form-box">
+        <!-- Login form -->
+        <div class="login-container" id="login">
+          <div class="top">
+            <span>
+              Don't have an account?
+              <a href="#" onclick="register()"> Register </a>
+            </span>
+            <header>Login</header>
+            <div class="input-box">
+              <input
+                class="input-field"
+                type="text"
+                id="input-field"
+                placeholder="Email Address"
+              />
+              <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+              <input
+                class="input-field"
+                type="password"
+                id="input-field"
+                placeholder="Password"
+              />
+              <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+              <input type="submit" class="submit" value="Login" />
+            </div>
+            <div class="two-col">
+              <div class="one">
+                <input type="checkbox" id="login-check" />
+                <label for="login-check"> Remember Me </label>
+              </div>
+              <div class="two">
+                <label>
+                  <a href="#">Forgot password?</a>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Register form -->
+        <div class="register-container" id="register">
+          <div class="top">
+            <span>
+              Have an account? <a href="#" onclick="login()">Login</a>
+            </span>
+            <header>Sign Up</header>
+            <div class="two-forms">
+              <div class="input-box">
+                <input
+                  class="input-field"
+                  type="text"
+                  id="input-field"
+                  placeholder="First Name"
+                />
+                <i class="bx bx-user"></i>
+              </div>
+              <div class="input-box">
+                <input
+                  class="input-field"
+                  type="text"
+                  id="input-field"
+                  placeholder="Last Name"
+                />
+                <i class="bx bx-user"></i>
+              </div>
+            </div>
+            <div class="input-box">
+              <input
+                class="input-field"
+                type="text"
+                id="input-field"
+                placeholder="Email Address"
+              />
+              <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+              <input
+                class="input-field"
+                type="password"
+                id="input-field"
+                placeholder="Password"
+              />
+              <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+              <input type="submit" class="submit" value="Register" />
+            </div>
+            <div class="two-col">
+              <div class="one">
+                <input type="checkbox" id="register-check" />
+                <label for="register-check"> Remember Me </label>
+              </div>
+              <div class="two">
+                <label>
+                  <a href="#">Terms and Conditions</a>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="./index.js"></script>
   </body>
 </html>
