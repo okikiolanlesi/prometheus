@@ -1,7 +1,7 @@
 'use strict';
 
 const connection = new signalR.HubConnectionBuilder()
-  .withUrl('https://localhost:7037/chathub') //May change basd on your port number
+  .withUrl('https://localhost:5001/chathub') //May change based on your port number
   .configureLogging(signalR.LogLevel.Information)
   .build();
 
