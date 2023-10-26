@@ -27,8 +27,13 @@
         </div>
         <div class="nav-menu" id="navMenu">
           <ul>
+<<<<<<< HEAD
             <li><a href="./login.html" class="link active">Home</a></li>
             <li><a href="./about.html" class="link">bout</a></li>
+=======
+            <li><a href="#" class="link active">Home</a></li>
+            <li><a href="./pages/about.html" class="link">About</a></li>
+>>>>>>> 1b00b02cfa01a0c646a7a02124dbaa1be1cf733a
           </ul>
         </div>
         <div class="nav-button">
@@ -38,6 +43,20 @@
           <button class="btn" id="signupBtn" onclick="register()">
             Signup
           </button>
+          <!-- <button
+            class="btn white-btn"
+            id="loginBtn"
+            onclick="loginAndRedirect('username')"
+          >
+            Login
+          </button>
+          <button
+            class="btn"
+            id="signupBtn"
+            onclick="registerAndRedirect('username')"
+          >
+            Signup
+          </button> -->
         </div>
         <div class="nav-menu-btn">
           <i class="bx bx-menu" onclick="menuFunction()"></i>
@@ -57,8 +76,8 @@
               <input
                 class="input-field"
                 type="text"
-                id="input-field"
-                placeholder="Email Address"
+                id="input-field-login-username"
+                placeholder="Username"
               />
               <i class="bx bx-envelope"></i>
             </div>
@@ -66,13 +85,18 @@
               <input
                 class="input-field"
                 type="password"
-                id="input-field"
+                id="input-field-login_password"
                 placeholder="Password"
               />
               <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-              <input type="submit" class="submit" value="Login" />
+              <input
+                type="submit"
+                class="submit"
+                value="Login"
+                onclick="loginAndRedirect()"
+              />
             </div>
             <div class="two-col">
               <div class="one">
@@ -100,7 +124,7 @@
                 <input
                   class="input-field"
                   type="text"
-                  id="input-field"
+                  id="input-field-first_name"
                   placeholder="First Name"
                 />
                 <i class="bx bx-user"></i>
@@ -109,7 +133,7 @@
                 <input
                   class="input-field"
                   type="text"
-                  id="input-field"
+                  id="input-field-last_name"
                   placeholder="Last Name"
                 />
                 <i class="bx bx-user"></i>
@@ -119,8 +143,8 @@
               <input
                 class="input-field"
                 type="text"
-                id="input-field"
-                placeholder="Email Address"
+                id="input-field-username"
+                placeholder="Username"
               />
               <i class="bx bx-envelope"></i>
             </div>
@@ -128,13 +152,18 @@
               <input
                 class="input-field"
                 type="password"
-                id="input-field"
+                id="input-field-password"
                 placeholder="Password"
               />
               <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-              <input type="submit" class="submit" value="Register" />
+              <input
+                type="submit"
+                class="submit"
+                value="Register"
+                onclick="registerAndRedirect()"
+              />
             </div>
             <div class="two-col">
               <div class="one">
@@ -151,6 +180,6 @@
         </div>
       </section>
     </main>
-    <script src="./index.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
