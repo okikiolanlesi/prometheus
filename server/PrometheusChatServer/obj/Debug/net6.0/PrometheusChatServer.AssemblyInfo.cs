@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrometheusChatServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb224cf844c14ff907f6a6ce51b3c7f4b0e2e4c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79a3afdcd7f008475ca17fb5aecd643bc02c97a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrometheusChatServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrometheusChatServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
