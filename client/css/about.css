@@ -1,0 +1,16 @@
+
+.About-us {
+  width: 100%;
+  text-align: center;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+h1{
+  color: black;
+  font-size: 35px;
+}
+
+p {
+  font-size: 20px;
+}
