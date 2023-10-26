@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="./assets//fireicon.png"
+      href="../assets/fireicon.png"
       type="image/x-icon"
     />
     <!-- Main CSS Style -->
     <link rel="stylesheet" href="../css/main.css" />
+    <!-- HomepageCSS -->
+    <link rel="stylesheet" href="../css/home.css" />
     <!-- Chatpage CSS style -->
     <link rel="stylesheet" href="../css/chat.css" />
     <!-- Boxicons CDN Link -->
@@ -19,5 +21,65 @@
     />
     <title>Prometheus | Chat</title>
   </head>
-  <body class="grainy"></body>
+  <body class="grainy">
+    <main class="wrapper">
+      <nav class="nav">
+        <div class="nav-logo">
+          <p>Prometheus</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="../index.html" class="link active">Home</a></li>
+            <li><a href="#" class="link">About</a></li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <button class="btn white-btn" id="loginBtn" onclick="login()">
+            Login
+          </button>
+          <button class="btn" id="signupBtn" onclick="register()">
+            Signup
+          </button>
+        </div>
+        <div class="nav-menu-btn">
+          <i class="bx bx-menu" onclick="menuFunction()"></i>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="header-section">
+          <h1 class="header">Welcome to Prometheus Chat</h1>
+          <p class="sub-header">
+            A place where you can chat with your friends and family!
+          </p>
+        </div>
+
+        <div class="message-section" id="messageSection">
+          <!-- Reciever message on right -->
+          <!-- <div class="msg-box received-msg">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus molestias omnis deserunt culpa nam soluta repellat
+          </div> -->
+          <!-- Sender message on left -->
+          <!-- <div class="msg-box sent-msg">hello</div> -->
+        </div>
+
+        <div class="input-section">
+          <input
+            type="text"
+            class="input"
+            placeholder="Type a message"
+            id="messageInput"
+          />
+          <button class="sendBtn" id="sendBtn">
+            <i class="bx bx-send"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../node_modules/@microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="../js/chat.js"></script>
+  </body>
 </html>
