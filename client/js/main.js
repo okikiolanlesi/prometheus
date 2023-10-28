@@ -9,8 +9,8 @@ let signUpElement = document.getElementById("signup-btn");
 let loginForm = document.getElementById("login");
 let signupForm = document.getElementById("register");
 
-loginElement.addEventListener("click", loginAndRedirect);
-signUpElement.addEventListener("click", registerAndRedirect);
+loginElement?.addEventListener("click", loginAndRedirect);
+signUpElement?.addEventListener("click", registerAndRedirect);
 
 function login() {
   loginForm.style.left = "4px";
