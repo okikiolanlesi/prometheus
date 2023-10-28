@@ -1,6 +1,5 @@
 "use strict";
 
-// getting username from session storage
 const getUserName = () => sessionStorage.getItem("username") || "Unknown";
 
 const connection = new signalR.HubConnectionBuilder()
@@ -17,12 +16,22 @@ const start = async () => {
   }
 };
 
+const getUserReceiverFromURL = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("receiver");
+};
+
 const joinChat = async (user) => {
   if (user === null) return;
 
   try {
     const message = `${user} joined.`;
-    await connection.invoke("JoinChat", user, message);
+    await connection.invoke(
+      "JoinChatSingle",
+      user,
+      getUserReceiverFromURL(),
+      message
+    );
     console.log(message);
   } catch (error) {
     console.log(error);
@@ -36,9 +45,16 @@ const getNotificationMessage = async () => {
   if (!currentUser) return;
 
   try {
-    await connection.on("ReceiveMessage", (user, message) => {
-      const messageClass = user === currentUser ? "sent-msg" : "received-msg";
-      appendMessage(message, messageClass);
+    await connection.on("ReceiveMessage", (sender, receiver, message) => {
+      console.log({
+        sender,
+        redc: getUserReceiverFromURL(),
+      });
+      if (getUserName() === sender || sender === getUserReceiverFromURL()) {
+        const messageClass =
+          sender === getUserName() ? "sent-msg" : "received-msg";
+        appendMessage(message, messageClass);
+      }
     });
   } catch (error) {
     console.log(error);
@@ -78,10 +94,23 @@ document.getElementById("sendBtn").addEventListener("click", async (e) => {
 
 const sendMessage = async (user, message) => {
   try {
-    await connection.invoke("SendMessage", user, message);
+    await connection.invoke(
+      "sendChatSingle",
+      user,
+      getUserReceiverFromURL(),
+      message
+    );
   } catch (error) {
     console.log(error);
   }
+};
+
+const listenForUserNameErrors = async () => {
+  connection.on("NameTaken", (name) => {
+    alert("Sorry, your username isn't valid please enter another one");
+
+    window.location.href = `/`;
+  });
 };
 
 const startApp = async () => {
@@ -90,6 +119,7 @@ const startApp = async () => {
   if (user) {
     await joinChat(user);
     await getNotificationMessage();
+    await listenForUserNameErrors();
   }
 };
 
