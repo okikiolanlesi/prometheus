@@ -86,7 +86,12 @@
               <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-              <input type="submit" class="submit" value="Login" />
+              <input
+                type="submit"
+                class="submit"
+                value="Login"
+                onclick="loginAndRedirect()"
+              />
             </div>
             <div class="two-col">
               <div class="one">
@@ -114,7 +119,7 @@
                 <input
                   class="input-field"
                   type="text"
-                  id="input-field"
+                  id="input-field-first_name"
                   placeholder="First Name"
                 />
                 <i class="bx bx-user"></i>
@@ -123,7 +128,7 @@
                 <input
                   class="input-field"
                   type="text"
-                  id="input-field"
+                  id="input-field-last_name"
                   placeholder="Last Name"
                 />
                 <i class="bx bx-user"></i>
@@ -131,16 +136,16 @@
             </div>
             <div class="input-box">
               <input
-                class="input-field"
+                class="input-field-username"
                 type="text"
                 id="input-field"
-                placeholder="Email Address"
+                placeholder="Username"
               />
               <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
               <input
-                class="input-field"
+                class="input-field-password"
                 type="password"
                 id="input-field"
                 placeholder="Password"
@@ -148,7 +153,12 @@
               <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-              <input type="submit" class="submit" value="Register" />
+              <input
+                type="submit"
+                class="submit"
+                value="Register"
+                onclick="registerAndRedirect()"
+              />
             </div>
             <div class="two-col">
               <div class="one">
@@ -165,6 +175,8 @@
         </div>
       </section>
     </main>
-    <script src="./index.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

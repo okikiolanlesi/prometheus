@@ -3,26 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/about.css" />
     <link
       rel="shortcut icon"
-      href="../assets/fireicon.png"
+      href="./assets//fireicon.png"
       type="image/x-icon"
     />
     <!-- Main CSS Style -->
     <link rel="stylesheet" href="../css/main.css" />
     <!-- HomepageCSS -->
     <link rel="stylesheet" href="../css/home.css" />
-    <!-- Chatpage CSS style -->
-    <link rel="stylesheet" href="../css/chat.css" />
+    <!-- ChatList CSS style -->
+    <link rel="stylesheet" href="../css/chatList.css" />
     <!-- Boxicons CDN Link -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>Prometheus | Chat</title>
+    <title>Prometheus | About Us</title>
   </head>
   <body class="grainy">
-    <main class="wrapper">
+    <main class="">
       <nav class="nav">
         <div class="nav-logo">
           <p>Prometheus</p>
@@ -47,39 +48,22 @@
       </nav>
 
       <div class="container">
-        <div class="header-section">
-          <h1 class="header">Welcome to Prometheus Chat</h1>
-          <p class="sub-header">
-            A place where you can chat with your friends and family!
-          </p>
-        </div>
-
-        <div class="message-section" id="messageSection">
-          <!-- Reciever message on right -->
-          <!-- <div class="msg-box received-msg">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus molestias omnis deserunt culpa nam soluta repellat
-          </div> -->
-          <!-- Sender message on left -->
-          <!-- <div class="msg-box sent-msg">hello</div> -->
-        </div>
-
-        <div class="input-section">
-          <input
-            type="text"
-            class="input"
-            placeholder="Type a message"
-            id="messageInput"
-          />
-          <button class="sendBtn" id="sendBtn">
-            <i class="bx bx-send"></i>
-          </button>
-        </div>
+        <h2 class="section-header">General Chat</h2>
+        <a href="/client/pages/chat.html" class="chat-box">
+          <p>Join general chat</p>
+          <p>></p>
+        </a>
+        <br />
+        <h2 class="section-header" id="user-header">Users</h2>
+        <div id="users-section"></div>
+        <br />
+        <button id="create-group">Create Group</button>
+        <h2 class="section-header" id="group-header">Groups</h2>
+        <div id="groups-section"></div>
       </div>
     </main>
 
-    <script src="../js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
-    <script src="../js/chat.js"></script>
+    <script src="../js/chatList.js"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 "use strict";
 
-// getting username from session storage
 const getUserName = () => sessionStorage.getItem("username") || "Unknown";
 
 const connection = new signalR.HubConnectionBuilder()
@@ -17,12 +16,22 @@ const start = async () => {
   }
 };
 
+const getGroupNameFromURL = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("groupName");
+};
+
 const joinChat = async (user) => {
   if (user === null) return;
 
   try {
-    const message = `${user} joined.`;
-    await connection.invoke("JoinChat", user, message);
+    const message = `${user} joined the group chat.`;
+    await connection.invoke(
+      "JoinRoom",
+      getGroupNameFromURL(),
+      getUserName(),
+      message
+    );
     console.log(message);
   } catch (error) {
     console.log(error);
@@ -36,8 +45,8 @@ const getNotificationMessage = async () => {
   if (!currentUser) return;
 
   try {
-    await connection.on("ReceiveMessage", (user, message) => {
-      const messageClass = user === currentUser ? "sent-msg" : "received-msg";
+    await connection.on("ReceiveGroupMessage", (message, user) => {
+      const messageClass = user === getUserName() ? "sent-msg" : "received-msg";
       appendMessage(message, messageClass);
     });
   } catch (error) {
@@ -78,10 +87,23 @@ document.getElementById("sendBtn").addEventListener("click", async (e) => {
 
 const sendMessage = async (user, message) => {
   try {
-    await connection.invoke("SendMessage", user, message);
+    await connection.invoke(
+      "SendMessageToRoom",
+      getGroupNameFromURL(),
+      message,
+      user
+    );
   } catch (error) {
     console.log(error);
   }
+};
+
+const listenForUserNameErrors = async () => {
+  connection.on("NameTaken", (name) => {
+    alert("Sorry, your username isn't valid please enter another one");
+
+    window.location.href = `/`;
+  });
 };
 
 const startApp = async () => {
@@ -90,6 +112,7 @@ const startApp = async () => {
   if (user) {
     await joinChat(user);
     await getNotificationMessage();
+    await listenForUserNameErrors();
   }
 };
 
