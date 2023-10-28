@@ -1,10 +1,11 @@
 "use strict";
+import config from "./config.js";
 
 // getting username from session storage
 const getUserName = () => sessionStorage.getItem("username") || "Unknown";
 
 const connection = new signalR.HubConnectionBuilder()
-  .withUrl(`https://localhost:7232/chathub?username=${getUserName()}`) //May change based on your port number
+  .withUrl(`${config.baseUrl}?username=${getUserName()}`) //May change based on your port number
   .configureLogging(signalR.LogLevel.Information)
   .build();
 

@@ -1,7 +1,16 @@
+import config from "./config.js";
+
+console.log("heeee===");
+
 let loginBtn = document.getElementById("loginBtn");
 let signupBtn = document.getElementById("signupBtn");
+let loginElement = document.getElementById("login-btn");
+let signUpElement = document.getElementById("signup-btn");
 let loginForm = document.getElementById("login");
 let signupForm = document.getElementById("register");
+
+loginElement.addEventListener("click", loginAndRedirect);
+signUpElement.addEventListener("click", registerAndRedirect);
 
 function login() {
   loginForm.style.left = "4px";
@@ -30,13 +39,18 @@ function menuFunction() {
 function loginAndRedirect() {
   const username = document.getElementById("input-field-login-username").value; // Get the username from the input field
   login(); // Execute the login function
-  checkIfNameIsTaken(username);
+
+  if (username) {
+    checkIfNameIsTaken(username);
+  }
 }
 
 function registerAndRedirect() {
   const username = document.getElementById("input-field-first_name").value; // Get the username from the input field
   register(); // Execute the register function
-  checkIfNameIsTaken(username);
+  if (username) {
+    checkIfNameIsTaken(username);
+  }
 }
 
 function redirectToChat(username) {
@@ -46,7 +60,7 @@ function redirectToChat(username) {
 
 async function checkIfNameIsTaken(name) {
   const connection = new signalR.HubConnectionBuilder()
-    .withUrl(`https://localhost:7232/chathub?username=${name}`) //May change based on your port number
+    .withUrl(`${config.baseUrl}?username=${name}`) //May change based on your port number
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
