@@ -6,11 +6,13 @@ let loginBtn = document.getElementById("loginBtn");
 let signupBtn = document.getElementById("signupBtn");
 let loginElement = document.getElementById("login-btn");
 let signUpElement = document.getElementById("signup-btn");
+let hamburgerElement = document.getElementById("hamburger");
 let loginForm = document.getElementById("login");
 let signupForm = document.getElementById("register");
 
 loginElement?.addEventListener("click", loginAndRedirect);
 signUpElement?.addEventListener("click", registerAndRedirect);
+hamburgerElement?.addEventListener("click", menuFunction);
 
 function login() {
   loginForm.style.left = "4px";
