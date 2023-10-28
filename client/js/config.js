@@ -1,3 +1,3 @@
 export default {
-  baseUrl: "http://localhost:5000/chatHub",
+  baseUrl: "https://localhost:7232/chatHub",
 };

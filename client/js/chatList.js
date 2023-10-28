@@ -70,7 +70,9 @@ const createGroup = async () => {
   document.getElementById("create-group").addEventListener("click", (e) => {
     e.preventDefault();
     const groupName = prompt("What name would you like to name your group");
-    connection.invoke("CreateGroup", groupName);
+    if (groupName) {
+      connection.invoke("CreateGroup", groupName);
+    }
   });
 };
 
