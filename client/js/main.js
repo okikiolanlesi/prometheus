@@ -1,16 +1,16 @@
-import config from "./config.js";
+import config from './config.js';
 
-let loginBtn = document.getElementById("loginBtn");
-let signupBtn = document.getElementById("signupBtn");
-let loginElement = document.getElementById("login-btn");
-let signUpElement = document.getElementById("signup-btn");
-let hamburgerElement = document.getElementById("hamburger");
-let loginForm = document.getElementById("login");
-let signupForm = document.getElementById("register");
+let loginBtn = document.getElementById('loginBtn');
+let signupBtn = document.getElementById('signupBtn');
+let loginElement = document.getElementById('login-btn');
+let signUpElement = document.getElementById('signup-btn');
+let hamburgerElement = document.getElementById('hamburger');
+let loginForm = document.getElementById('login');
+let signupForm = document.getElementById('register');
 
-loginElement?.addEventListener("click", loginAndRedirect);
-signUpElement?.addEventListener("click", registerAndRedirect);
-hamburgerElement?.addEventListener("click", menuFunction);
+loginElement?.addEventListener('click', loginAndRedirect);
+signUpElement?.addEventListener('click', registerAndRedirect);
+hamburgerElement?.addEventListener('click', menuFunction);
 
 function login() {
   // loginForm.style.left = "4px";
@@ -27,17 +27,17 @@ function register() {
 }
 
 function menuFunction() {
-  let navMenu = document.getElementById("navMenu");
+  let navMenu = document.getElementById('navMenu');
 
-  if (navMenu.className === "nav-menu") {
-    navMenu.className += " responsive";
+  if (navMenu.className === 'nav-menu') {
+    navMenu.className += ' responsive';
   } else {
-    navMenu.className = "nav-menu";
+    navMenu.className = 'nav-menu';
   }
 }
 
 function loginAndRedirect() {
-  const username = document.getElementById("input-field-login-username").value; // Get the username from the input field
+  const username = document.getElementById('input-field-login-username').value; // Get the username from the input field
   login(); // Execute the login function
 
   if (username) {
@@ -46,7 +46,7 @@ function loginAndRedirect() {
 }
 
 function registerAndRedirect() {
-  const username = document.getElementById("input-field-first_name").value; // Get the username from the input field
+  const username = document.getElementById('input-field-first_name').value; // Get the username from the input field
   register(); // Execute the register function
   if (username) {
     checkIfNameIsTaken(username);
@@ -54,7 +54,7 @@ function registerAndRedirect() {
 }
 
 function redirectToChat(username) {
-  sessionStorage.setItem("username", username);
+  sessionStorage.setItem('username', username);
   window.location.href = `/client/pages/chatList.html`;
 }
 
@@ -66,11 +66,11 @@ async function checkIfNameIsTaken(name) {
 
   await connection.start();
 
-  connection.on("NameTaken", (name) => {
-    alert("Sorry, that name has already been used, please enter another one");
+  connection.on('NameTaken', (name) => {
+    alert('Sorry, that name has already been used, please enter another one');
   });
 
-  connection.on("NameAvailable", (name) => {
+  connection.on('NameAvailable', (name) => {
     redirectToChat(name);
   });
 }

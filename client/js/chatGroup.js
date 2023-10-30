@@ -112,6 +112,11 @@ const setUsername = () => {
   document.getElementById('usernamePlaceholder').textContent = username;
 };
 
+const chatGroupName = () => {
+  const groupName = getGroupNameFromURL();
+  document.getElementById('chatGroupName').textContent = groupName;
+};
+
 const startApp = async () => {
   await start();
   const user = getUserName();
@@ -122,6 +127,7 @@ const startApp = async () => {
   }
 
   setUsername(); // Set the username when the app starts
+  chatGroupName(); // Set the chat group name when the app starts
 };
 
 startApp();
