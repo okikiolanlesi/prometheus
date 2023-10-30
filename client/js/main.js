@@ -1,7 +1,5 @@
 import config from "./config.js";
 
-console.log("heeee===");
-
 let loginBtn = document.getElementById("loginBtn");
 let signupBtn = document.getElementById("signupBtn");
 let loginElement = document.getElementById("login-btn");
@@ -15,17 +13,17 @@ signUpElement?.addEventListener("click", registerAndRedirect);
 hamburgerElement?.addEventListener("click", menuFunction);
 
 function login() {
-  loginForm.style.left = "4px";
-  signupForm.style.right = "-520px";
-  loginBtn.className += " white-btn";
-  signupBtn.className = "btn";
+  // loginForm.style.left = "4px";
+  // signupForm.style.right = "-520px";
+  // loginBtn?.className += " white-btn";
+  // signupBtn?.className = "btn";
 }
 
 function register() {
-  loginForm.style.left = "-520px";
-  signupForm.style.right = "4px";
-  loginBtn.className = "btn";
-  signupBtn.className += " white-btn";
+  // loginForm.style.left = "-520px";
+  // signupForm.style.right = "4px";
+  // loginBtn.className = "btn";
+  // signupBtn.className += " white-btn";
 }
 
 function menuFunction() {
